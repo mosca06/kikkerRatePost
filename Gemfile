@@ -42,4 +42,6 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "simplecov"
+
+  gem "factory_bot_rails"
 end
