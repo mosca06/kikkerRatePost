@@ -1,6 +1,38 @@
 {
   "RSpec": {
-    "coverage": {},
-    "timestamp": 1745417500
+    "coverage": {
+      "/home/eduardo/tramps/ratePost/app/models/post.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/eduardo/tramps/ratePost/app/models/rating.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/eduardo/tramps/ratePost/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1745437053
   }
 }
