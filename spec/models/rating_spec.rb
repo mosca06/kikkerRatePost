@@ -10,12 +10,12 @@ RSpec.describe Rating, type: :model do
     let(:user) { create(:user) }
     let(:post) { create(:post) }
 
-    it 'is expected to validate that :value lies inside the range 1 to 5' do
+    it 'valida que o valor tem que ser entre 1 e 5' do
       invalid_value = rand(1..2) == 1 ? rand(-100..0) : rand(6..100)
       rating = build(:rating, user: user, post: post, value: invalid_value)
 
       expect(rating).not_to be_valid
-      expect(rating.errors[:value]).to include('must be between 1 and 5')
+      expect(rating.errors.full_messages).to include("Value must be between 1 and 5.")
 
       random_value = rand(1..5)
       rating = build(:rating, user: user, post: post, value: random_value)
@@ -23,12 +23,12 @@ RSpec.describe Rating, type: :model do
       expect(rating).to be_valid
     end
 
-    it 'is expected to validate uniqueness of user_id scoped to post_id' do
-      rating1 = create(:rating, user: user, post: post, value: 4)
+    it 'valida que nao tem duplicaçao de avaliaçao' do
+      create(:rating, user: user, post: post, value: 4)
       rating2 = build(:rating, user: user, post: post, value: 3)
 
       expect(rating2).not_to be_valid
-      expect(rating2.errors[:user_id]).to include('has already rated this post')
+      expect(rating2.errors[:user_id]).to include("User already rated this Post.")
 
       user2 = create(:user)
       rating3 = build(:rating, user: user2, post: post, value: 5)
