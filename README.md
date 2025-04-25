@@ -3,6 +3,8 @@
 ## 🚀 Sobre o Projeto
 RatePost é uma API REST desenvolvida com Ruby on Rails que permite a criação de posts com sistema de avaliação. Ela também oferece funcionalidades para listar os melhores posts, além de agrupar IPs por autores.
 
+### Tarefas em : https://github.com/users/mosca06/projects/11/views/1
+
 ## 📌 Tecnologias Utilizadas
 
 - Ruby on Rails (versão mais recente estável)
@@ -52,6 +54,7 @@ rails db:seed
 
 🔹 Criar um novo Post
 <details>
+	<summary> Detalhes da criação</summary>
   
   Método POST: 
   ```
@@ -95,6 +98,7 @@ rails db:seed
 
 🔹 Avaliar um Post
 <details>
+	<summary> Detalhes da avaliação</summary>
 
  Método POST: 
 ```
@@ -122,6 +126,8 @@ Resposta JSON:
 
 🔹 Listar os N melhores posts (por média de avaliação)
 <details>
+	
+  <summary> Detalhes dos N melhores</summary>
   
   Método GET:
   ```
@@ -151,6 +157,7 @@ Resposta JSON:
 
 🔹 Listar IPs utilizados por diferentes autores
 <details>
+	<summary> Detalhes da listagem</summary>
   
   Método GET:
    ```
