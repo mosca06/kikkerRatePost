@@ -51,7 +51,7 @@ rails db:seed
 ### **🔗 Endpoints da API**
 
 🔹 Criar um novo Post
-<details>
+<entre para mais detalhes>
   
   Método POST: 
   ```
