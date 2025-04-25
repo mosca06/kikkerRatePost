@@ -20,10 +20,10 @@ describe 'GET /api/v1/posts/top' do
 
     expect(response).to have_http_status(:ok)
 
-    posts = JSON.parse(response.body)
+    posts = response.parsed_body
     expect(posts.length).to eq(2)
 
-    expect(posts[0]["id"]).to eq(@post1.id)
-    expect(posts[1]["id"]).to eq(@post2.id)
+    expect(posts[0]['id']).to eq(@post1.id)
+    expect(posts[1]['id']).to eq(@post2.id)
   end
 end

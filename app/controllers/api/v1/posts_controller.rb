@@ -15,19 +15,19 @@ module Api
       def top
         limit = params[:limit].to_i <= 0 ? 10 : params[:limit].to_i
 
-        posts = Post.select("posts.id, posts.title, posts.body, AVG(ratings.value) AS average_rating")
+        posts = Post.select('posts.id, posts.title, posts.body, AVG(ratings.value) AS average_rating')
                     .joins(:ratings)
-                    .group("posts.id")
-                    .order("average_rating DESC")
+                    .group('posts.id')
+                    .order('average_rating DESC')
                     .limit(limit)
 
-        render json: posts.as_json(only: [ :id, :title, :body ])
+        render json: posts.as_json(only: [:id, :title, :body])
       end
 
       def ips
-        ips = Post.select("posts.ip, users.login")
+        ips = Post.select('posts.ip, users.login')
                   .joins(:user)
-                  .group("posts.ip, users.login")
+                  .group('posts.ip, users.login')
 
         result = ips.group_by(&:ip).map do |ip, posts|
           {
