@@ -13,7 +13,7 @@
       <img src="./assets/0.13.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2025-04-24T21:13:11-03:00">2025-04-24T21:13:11-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2025-04-25T09:25:36-03:00">2025-04-25T09:25:36-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -908,7 +908,7 @@
 
             
 
-            <code class="ruby">        posts = Post.select(&quot;posts.id, posts.title, posts.body, AVG(ratings.value) AS average_rating&quot;)</code>
+            <code class="ruby">        posts = Post.select(&#39;posts.id, posts.title, posts.body, AVG(ratings.value) AS average_rating&#39;)</code>
           </li>
         </div>
       
@@ -928,7 +928,7 @@
 
             
 
-            <code class="ruby">                    .group(&quot;posts.id&quot;)</code>
+            <code class="ruby">                    .group(&#39;posts.id&#39;)</code>
           </li>
         </div>
       
@@ -938,7 +938,7 @@
 
             
 
-            <code class="ruby">                    .order(&quot;average_rating DESC&quot;)</code>
+            <code class="ruby">                    .order(&#39;average_rating DESC&#39;)</code>
           </li>
         </div>
       
@@ -970,7 +970,7 @@
 
             
 
-            <code class="ruby">        render json: posts.as_json(only: [ :id, :title, :body ])</code>
+            <code class="ruby">        render json: posts.as_json(only: [:id, :title, :body])</code>
           </li>
         </div>
       
@@ -1014,7 +1014,7 @@
 
             
 
-            <code class="ruby">        ips = Post.select(&quot;posts.ip, users.login&quot;)</code>
+            <code class="ruby">        ips = Post.select(&#39;posts.ip, users.login&#39;)</code>
           </li>
         </div>
       
@@ -1034,7 +1034,7 @@
 
             
 
-            <code class="ruby">                  .group(&quot;posts.ip, users.login&quot;)</code>
+            <code class="ruby">                  .group(&#39;posts.ip, users.login&#39;)</code>
           </li>
         </div>
       
@@ -1731,7 +1731,7 @@
 
             
 
-            <code class="ruby">  validates :value, inclusion: { in: 1..5, message: &quot;must be between 1 and 5.&quot; }</code>
+            <code class="ruby">  validates :value, inclusion: { in: 1..5, message: &#39;must be between 1 and 5.&#39; }</code>
           </li>
         </div>
       
@@ -1743,7 +1743,7 @@
 
             
 
-            <code class="ruby">  validates_uniqueness_of :user_id, scope: :post_id, message: &quot;User already rated this Post.&quot;</code>
+            <code class="ruby">  validates :user_id, uniqueness: { scope: :post_id, message: &#39;User already rated this Post.&#39; }</code>
           </li>
         </div>
       
@@ -2097,7 +2097,7 @@
 
             
 
-            <code class="ruby">    return { errors: [ &quot;User already rated this Post.&quot; ] } if existing_rating</code>
+            <code class="ruby">    return { errors: [&#39;User already rated this Post.&#39;] } if existing_rating</code>
           </li>
         </div>
       
@@ -2205,7 +2205,7 @@
 
             
 
-            <code class="ruby">    { errors: [ &quot;User already rated this Post.&quot; ] }</code>
+            <code class="ruby">    { errors: [&#39;User already rated this Post.&#39;] }</code>
           </li>
         </div>
       
@@ -2325,7 +2325,7 @@
 
             
 
-            <code class="ruby">  def average_rating(rating)</code>
+            <code class="ruby">  def average_rating(_rating)</code>
           </li>
         </div>
       

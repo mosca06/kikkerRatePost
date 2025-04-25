@@ -6,7 +6,6 @@ RSpec.describe User, type: :model do
     it { should have_many(:ratings) }
   end
 
-
   describe 'validations' do
     it { should validate_presence_of(:login) }
     it { should validate_uniqueness_of(:login) }

@@ -16,9 +16,9 @@ RSpec.describe 'Api::V1::Posts', type: :request do
       get '/api/v1/posts/ips'
 
       expect(response).to have_http_status(:success)
-      expect(JSON.parse(response.body)).to contain_exactly(
-          { "ip"=>"192.168.1.2", "logins"=>[ "user3" ] },
-          { "ip"=>"192.168.1.1", "logins"=>[ "user1", "user2" ] }
+      expect(response.parsed_body).to contain_exactly(
+        { 'ip' => '192.168.1.2', 'logins' => ['user3'] },
+        { 'ip' => '192.168.1.1', 'logins' => %w[user1 user2] }
       )
     end
   end
