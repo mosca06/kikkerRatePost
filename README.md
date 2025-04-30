@@ -17,7 +17,7 @@ RatePost é uma API REST desenvolvida com Ruby on Rails que permite a criação 
 ### **1️⃣ Clonando o Repositório**
 ```sh
 git clone https://github.com/mosca06/kikkerRatePost.git
-cd ratePost
+cd kikkerRatePost
 ```
 ### **2️⃣ Instalando Dependências**
 ```sh
