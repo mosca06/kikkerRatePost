@@ -3,9 +3,13 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::Posts', type: :request do
   describe 'POST /api/v1/posts' do
     let(:user_login) { 'mosca06' }
+    let(:user_password) { '123456' }
     let(:valid_attributes) do
       {
-        user: { login: user_login },
+        user: {
+          login: user_login,
+          password: user_password
+        },
         post: {
           title: 'Título do post',
           body: 'Corpo do post',

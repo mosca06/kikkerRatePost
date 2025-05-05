@@ -3,7 +3,7 @@ module Api
     class PostsController < ApplicationController
       def create
         user = User.find_or_create_by(user_params)
-        post = user.posts.new(title: post_params[:title], body: post_params[:body], ip: post_params[:ip])
+        post = user.posts.new(post_params.slice(:title, :body, :ip))
 
         if post.save
           render json: { post: post, user: user }, status: :created
