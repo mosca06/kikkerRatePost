@@ -8,7 +8,6 @@ RSpec.describe User, type: :model do
 
   describe 'validations' do
     it { should validate_presence_of(:login) }
-    it { should validate_uniqueness_of(:login) }
   end
 
   describe 'validations for uniqueness' do
@@ -18,6 +17,7 @@ RSpec.describe User, type: :model do
 
       expect(user1).to be_valid
       expect(user2).not_to be_valid
+      expect(user2.errors[:login]).to include('Usuário já existe')
     end
   end
 end

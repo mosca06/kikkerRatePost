@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :posts, only:   [:create]
-      resources :ratings, only: [:create]
+      resources :ratings, only: [:create, :update]
+      resources :users, only:   [:create]
       get 'posts/top', to: 'posts#top'
       get 'posts/ips', to: 'posts#ips'
     end
