@@ -62,7 +62,7 @@ puts "Criando posts, usuarios e ratings..."
 success = 0
 failures = 0
 
-250000.times do |i|
+2500.times do |i|
   login = logins.sample
   title = "This title number : #{i}"
   body = Faker::Lorem.paragraph(sentence_count: 3)
@@ -70,7 +70,7 @@ failures = 0
 
 
   post_data = create_post(title, body, ip, login)
-
+  
   if post_data && post_data['post'] && post_data['post']['id']
     success += 1
 

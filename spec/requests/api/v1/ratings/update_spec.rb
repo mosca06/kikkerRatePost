@@ -8,11 +8,11 @@ RSpec.describe 'Ratings API - Update', type: :request do
 
     context 'with valid params' do
       it 'updates the rating' do
-        patch "/api/v1/ratings/#{rating.id}", params: { rating: { value: 4 } }
+        patch "/api/v1/ratings/#{rating.id}", params: { value: 4 }, as: :json
 
         expect(response).to have_http_status(:ok)
         json_response = response.parsed_body
-        expect(json_response['rating']['value']).to eq(4)
+        expect(json_response['rating']['new_value']).to eq(4)
       end
     end
 

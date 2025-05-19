@@ -13,7 +13,7 @@ RSpec.describe 'Api::V1::Posts', type: :request do
 
   describe 'GET /api/v1/posts/ips' do
     it 'retorna um array de IPs com os logins dos autores' do
-      get '/api/v1/posts/ips'
+      get '/api/v1/posts/ips', as: :json
 
       expect(response).to have_http_status(:success)
       expect(response.parsed_body).to contain_exactly(
