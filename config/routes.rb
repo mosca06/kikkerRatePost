@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :api do
     namespace :v1 do
-      resources :posts, only:   [:create]
+      resources :posts, only: [:create] do
+        collection do
+          get :top
+          get :ips
+        end
+      end
+
       resources :ratings, only: [:create, :update]
-      resources :users, only:   [:create]
-      get 'posts/top', to: 'posts#top'
-      get 'posts/ips', to: 'posts#ips'
+      resources :users, only: [:create]
     end
   end
 end

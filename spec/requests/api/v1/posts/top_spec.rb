@@ -16,7 +16,7 @@ describe 'GET /api/v1/posts/top' do
   end
 
   it 'retorna os posts ordenados por média de avaliação' do
-    get '/api/v1/posts/top', params: { limit: 2 }
+    get '/api/v1/posts/top.json', params: { limit: 2 }
 
     expect(response).to have_http_status(:ok)
 

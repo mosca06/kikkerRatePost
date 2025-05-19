@@ -13,11 +13,11 @@ RSpec.describe 'Api::V1::Ratings', type: :request do
             post_id: post_record.id,
             value: 5
           }
-        }
+        }, as: :json
 
         expect(response).to have_http_status(:created)
-        expect(response.parsed_body).to have_key('average_rating')
-        expect(response.parsed_body['average_rating']).to eq(5.0)
+        expect(response.parsed_body).to have_key('rating')
+        expect(response.parsed_body['rating']['average_rating']).to eq(5.0)
       end
     end
 

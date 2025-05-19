@@ -7,11 +7,11 @@ RSpec.describe 'Ratings API - Create', type: :request do
 
     context 'with valid params' do
       it 'creates a rating and returns average_rating' do
-        post '/api/v1/ratings', params: { rating: { user_id: user.id, post_id: post_record.id, value: 5 } }
+        post '/api/v1/ratings', params: { rating: { user_id: user.id, post_id: post_record.id, value: 5 } }, as: :json
 
         expect(response).to have_http_status(:created)
         json_response = response.parsed_body
-        expect(json_response).to have_key('average_rating')
+        expect(json_response).to have_key('rating')
       end
     end
 

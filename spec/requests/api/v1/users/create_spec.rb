@@ -6,13 +6,13 @@ RSpec.describe 'Api::V1::Users', type: :request do
     let(:invalid_params) { { user: { login: '' } } }
 
     it 'creates a new user with valid params' do
-      post '/api/v1/users', params: valid_params
+      post '/api/v1/users', params: valid_params, as: :json
       expect(response).to have_http_status(:created)
       expect(response.parsed_body['user']['login']).to eq('new_user')
     end
 
     it 'returns errors with invalid params' do
-      post '/api/v1/users', params: invalid_params
+      post '/api/v1/users', params: invalid_params, as: :json
       expect(response).to have_http_status(:unprocessable_entity)
       expect(response.parsed_body['errors']).to include("Login can't be blank")
     end

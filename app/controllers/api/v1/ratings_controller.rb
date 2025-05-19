@@ -3,21 +3,16 @@ module Api
     class RatingsController < ApplicationController
       before_action :fetch_rating, only: :update
       def create
-        result = RatingService.call(rating_params[:user_id], rating_params[:post_id], rating_params[:value])
+        @result = RatingService.call(rating_params[:user_id], rating_params[:post_id], rating_params[:value])
+        return render :create, status: :created if @result[:errors].nil?
 
-        if result[:errors]
-          render json: { errors: result[:errors] }, status: :unprocessable_entity
-        else
-          render json: { average_rating: result[:average_rating] }, status: :created
-        end
+        render json: { errors: @result[:errors] }, status: :unprocessable_entity
       end
 
       def update
-        if @rating.update(rating_params)
-          render json: { rating: @rating }
-        else
-          render json: { errors: @rating.errors.full_messages }, status: :unprocessable_entity
-        end
+        return render :update if @rating.update(rating_params)
+
+        render json: { errors: @rating.errors.full_messages }, status: :unprocessable_entity
       end
 
       private

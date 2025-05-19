@@ -21,7 +21,7 @@ RSpec.describe 'Api::V1::Posts', type: :request do
     context 'com parâmetros válidos' do
       it 'cria um novo post e usuário (se necessário)' do
         expect do
-          post '/api/v1/posts', params: valid_attributes
+          post '/api/v1/posts', params: valid_attributes, as: :json
         end.to change(Post, :count).by(1)
                                    .and change(User, :count).by(1)
 
@@ -36,7 +36,7 @@ RSpec.describe 'Api::V1::Posts', type: :request do
         User.create!(login: user_login)
 
         expect do
-          post '/api/v1/posts', params: valid_attributes
+          post '/api/v1/posts', params: valid_attributes, as: :json
         end.to change(Post, :count).by(1)
                                    .and change(User, :count).by(0)
 
